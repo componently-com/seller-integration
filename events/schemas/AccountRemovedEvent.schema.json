@@ -8,7 +8,7 @@
       "description": "The type of the event."
     },
     "detail": {
-      "$ref": "#/definitions/AccountRemovedEventDetail",
+      "$ref": "./AccountRemovedEventDetail.schema.json",
       "title": "Account removed event detail"
     },
     "version": {
@@ -45,16 +45,16 @@
     "source",
     "time"
   ],
-  "title": "Account removed event",
+  "title": "AccountRemovedEvent",
   "description": "This event will be sent when a user removes an account. To comply with GDPR rulings you are expected to also remove all data you have on this user that is no longer required.",
   "example": {
     "version": "0",
-    "id": "614d3bf3-a215-48f8-a9e8-bb00f72fe135",
+    "id": "6edfe90a-5108-483f-be03-9f224f19d598",
     "detail-type": "Account removed",
     "source": "componently.vendor",
     "time": "2020-06-01T18:19:00Z",
     "detail": {
-      "userId": "510ba8d3-ca20-44b6-be49-3956ad539bca"
+      "userId": "867e6314-2777-4376-89a2-9b4d7cc96383"
     }
   }
 }

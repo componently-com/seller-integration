@@ -1,0 +1,69 @@
+# AccountRequestedEvent
+
+This event is sent when a user wants to set up an account with your service. You are expected to provision said account right after you receive the event as a free or trial account.
+
+The schema defines the following properties:
+
+## `detail-type` (string, enum, required)
+
+The type of the event.
+
+This element must be one of the following enum values:
+
+* `Account request`
+
+## `detail` (object, required)
+
+Properties of the `detail` object:
+
+### `userId` (string, required)
+
+A unique id identifying the user.
+
+### `email` (string, required)
+
+The user's email address.
+
+### `firstName` (string, required)
+
+The user's first name.
+
+### `lastName` (string, required)
+
+The user's last name.
+
+### `password` (string, required)
+
+The password the user chooses. Do not save or log this unhashed!
+
+Additional restrictions:
+
+* Minimum: `10`
+
+## `version` (string, enum, required)
+
+Version of the event schema.
+
+This element must be one of the following enum values:
+
+* `0`
+
+## `id` (string, required)
+
+A unique id identifying the event. You can use this id to deal with message duplicity.
+
+## `source` (string, enum, required)
+
+An identifier you can use to separate componently events from other events.
+
+This element must be one of the following enum values:
+
+* `componently.vendor`
+
+## `time` (string, required)
+
+When the event happened.
+
+Additional restrictions:
+
+* Regex pattern: `d{4}-[01]d-[0-3]dT[0-2]d:[0-5]d:[0-5]d.d+Z?`

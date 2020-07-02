@@ -8,7 +8,7 @@
       "description": "The type of the event."
     },
     "detail": {
-      "$ref": "#/definitions/AccountUnsubscribedEventDetail"
+      "$ref": "./AccountUnsubscribedEventDetail.schema.json"
     },
     "version": {
       "type": "string",
@@ -43,5 +43,17 @@
     "id",
     "source",
     "time"
-  ]
+  ],
+  "title": "AccountUnsubscribedEvent",
+  "description": "This event is sent when a user no longer pays for a subscription and therefore should not have access to the paid service anymore.",
+  "example": {
+    "version": "0",
+    "id": "a665b5c4-7575-47ad-9cb9-6763d9b46b3f",
+    "detail-type": "Account unsubscribed",
+    "source": "componently.vendor",
+    "time": "2020-06-01T18:19:00Z",
+    "detail": {
+      "userId": "4bed6a7b-97ce-44cb-a690-b8802b0a1248"
+    }
+  }
 }

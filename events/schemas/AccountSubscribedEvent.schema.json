@@ -8,7 +8,7 @@
       "description": "The type of the event."
     },
     "detail": {
-      "$ref": "#/definitions/AccountSubscribedEventDetail"
+      "$ref": "./AccountSubscribedEventDetail.schema.json"
     },
     "version": {
       "type": "string",
@@ -43,5 +43,18 @@
     "id",
     "source",
     "time"
-  ]
+  ],
+  "title": "AccountSubscribedEvent",
+  "description": "This event is sent when a user has bought a paid subscription.",
+  "example": {
+    "version": "0",
+    "id": "3844124c-cb00-41c7-8803-cefc1d4d9b34",
+    "detail-type": "Account subscribed",
+    "source": "componently.vendor",
+    "time": "2020-06-01T18:19:00Z",
+    "detail": {
+      "userId": "05eed33f-1469-4e93-ba9c-78a622b091b4",
+      "subscriptionId": "731065ff-e134-4d12-b9c6-6cad02b3d79b"
+    }
+  }
 }

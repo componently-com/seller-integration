@@ -8,7 +8,7 @@
       "description": "The type of the event."
     },
     "detail": {
-      "$ref": "#/definitions/AccountRequestedEventDetail"
+      "$ref": "./AccountRequestedEventDetail.schema.json"
     },
     "version": {
       "type": "string",
@@ -43,5 +43,21 @@
     "id",
     "source",
     "time"
-  ]
+  ],
+  "title": "AccountRequestedEvent",
+  "description": "This event is sent when a user wants to set up an account with your service. You are expected to provision said account right after you receive the event as a free or trial account.",
+  "example": {
+    "version": "0",
+    "id": "eb511616-b1d7-4ab8-b488-7edd36f31123",
+    "detail-type": "Account request",
+    "source": "componently.vendor",
+    "time": "2020-06-01T18:19:00Z",
+    "detail": {
+      "userId": "c638f2b9-3163-4180-a811-4c2b907359d4",
+      "email": "test.user@componently.com",
+      "firstName": "Test",
+      "lastName": "User",
+      "password": "Y1BsNWCEBZ9Est5Od3r^"
+    }
+  }
 }
