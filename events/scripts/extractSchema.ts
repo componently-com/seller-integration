@@ -7,10 +7,17 @@ import '../src/AccountUnsubscribedEvent'
 
 const { writeFile } = promises
 
+function fixEventDetailReferencePath (schema) {
+  if (schema.properties.detail) {
+    schema.properties.detail.$ref = schema.properties.detail.$ref + '.schema.json'
+  }
+}
+
 async function extractSchema () {
-  const schemas = validationMetadatasToSchemas()
-  for (const schema in schemas) {
-    await writeFile(`../schemas/${schema}.schema.json`, JSON.stringify(schemas[schema], null, 2))
+  const schemas = validationMetadatasToSchemas({ refPointerPrefix: './'})
+  for (const schemaName in schemas) {
+    fixEventDetailReferencePath(schemas[schemaName])
+    await writeFile(`./schemas/${schemaName}.schema.json`, JSON.stringify(schemas[schemaName], null, 2))
   }
 }
 
