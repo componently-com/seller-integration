@@ -1,5 +1,5 @@
 import { JSONSchema } from 'class-validator-jsonschema'
-import { Equals, IsISO8601, IsString, IsUUID } from 'class-validator'
+import { Equals, IsDateString, IsString, IsUUID } from 'class-validator'
 import { v4 as uuid } from 'uuid'
 
 export class BaseEvent {
@@ -22,9 +22,9 @@ export class BaseEvent {
   source = 'componently.vendor' as const
 
   @JSONSchema({
-    description: 'When the event happened.'
+    description: 'When the event happened.',
   })
-  @IsISO8601()
+  @IsDateString()
   time: string
 
   @JSONSchema({

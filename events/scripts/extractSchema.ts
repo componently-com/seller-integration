@@ -10,7 +10,7 @@ const { writeFile } = promises
 async function extractSchema () {
   const schemas = validationMetadatasToSchemas()
   for (const schema in schemas) {
-    await writeFile(`../schemas/${schema}.json`, JSON.stringify(schemas[schema], null, 2))
+    await writeFile(`../schemas/${schema}.schema.json`, JSON.stringify(schemas[schema], null, 2))
   }
 }
 
