@@ -1,24 +1,11 @@
 import { v4 as uuid } from 'uuid'
-import { AccountRemovedEvent } from './AccountRemovedEvent'
+import { AccountRemovedEvent, createExampleAccountRemovedEvent } from './AccountRemovedEvent'
 import { transformAndValidate } from 'class-transformer-validator'
-
-function createValidEvent (): AccountRemovedEvent {
-  return {
-    version: '0',
-    id: uuid(),
-    'detail-type': 'Account removed',
-    source: 'componently.vendor',
-    time: '2020-06-01T18:19:00Z',
-    detail: {
-      userId: uuid()
-    }
-  }
-}
 
 describe('AccountRemovedEvent', () => {
   describe('interface', () => {
     it('accepts a valid event', () => {
-      const event: AccountRemovedEvent = createValidEvent()
+      const event: AccountRemovedEvent = createExampleAccountRemovedEvent()
     })
 
     it('rejects an event with missing detail', () => {
@@ -35,7 +22,7 @@ describe('AccountRemovedEvent', () => {
 
   describe('validator', () => {
     it('accepts a valid event', async () => {
-      expect(await transformAndValidate(AccountRemovedEvent, createValidEvent())).toBeDefined()
+      expect(await transformAndValidate(AccountRemovedEvent, createExampleAccountRemovedEvent())).toBeDefined()
     })
 
     it('rejects an event with missing detail', async () => {
