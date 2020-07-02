@@ -1,0 +1,60 @@
+{
+  "properties": {
+    "detail-type": {
+      "type": "string",
+      "enum": [
+        "Account removed"
+      ],
+      "description": "The type of the event."
+    },
+    "detail": {
+      "$ref": "#/definitions/AccountRemovedEventDetail",
+      "title": "Account removed event detail"
+    },
+    "version": {
+      "type": "string",
+      "enum": [
+        "0"
+      ],
+      "description": "Version of the event schema."
+    },
+    "id": {
+      "format": "uuid",
+      "type": "string",
+      "description": "A unique id identifying the event. You can use this id to deal with message duplicity."
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "componently.vendor"
+      ],
+      "description": "An identifier you can use to separate componently events from other events."
+    },
+    "time": {
+      "pattern": "d{4}-[01]d-[0-3]dT[0-2]d:[0-5]d:[0-5]d.d+Z?",
+      "type": "string",
+      "description": "When the event happened."
+    }
+  },
+  "type": "object",
+  "required": [
+    "detail-type",
+    "detail",
+    "version",
+    "id",
+    "source",
+    "time"
+  ],
+  "title": "Account removed event",
+  "description": "This event will be sent when a user removes an account. To comply with GDPR rulings you are expected to also remove all data you have on this user that is no longer required.",
+  "example": {
+    "version": "0",
+    "id": "614d3bf3-a215-48f8-a9e8-bb00f72fe135",
+    "detail-type": "Account removed",
+    "source": "componently.vendor",
+    "time": "2020-06-01T18:19:00Z",
+    "detail": {
+      "userId": "510ba8d3-ca20-44b6-be49-3956ad539bca"
+    }
+  }
+}

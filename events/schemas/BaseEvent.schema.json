@@ -1,0 +1,40 @@
+{
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": [
+        "0"
+      ],
+      "description": "Version of the event schema."
+    },
+    "id": {
+      "format": "uuid",
+      "type": "string",
+      "description": "A unique id identifying the event. You can use this id to deal with message duplicity."
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "componently.vendor"
+      ],
+      "description": "An identifier you can use to separate componently events from other events."
+    },
+    "time": {
+      "pattern": "d{4}-[01]d-[0-3]dT[0-2]d:[0-5]d:[0-5]d.d+Z?",
+      "type": "string",
+      "description": "When the event happened."
+    },
+    "detail-type": {
+      "type": "string",
+      "description": "The type of the event."
+    }
+  },
+  "type": "object",
+  "required": [
+    "version",
+    "id",
+    "source",
+    "time",
+    "detail-type"
+  ]
+}

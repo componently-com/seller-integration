@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "userId": {
+      "format": "uuid",
+      "type": "string",
+      "description": "A unique id identifying the user."
+    }
+  },
+  "type": "object",
+  "required": [
+    "userId"
+  ]
+}

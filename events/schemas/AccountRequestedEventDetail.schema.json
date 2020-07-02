@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "userId": {
+      "format": "uuid",
+      "type": "string",
+      "description": "A unique id identifying the user."
+    },
+    "email": {
+      "format": "email",
+      "type": "string",
+      "description": "The user's email address."
+    },
+    "firstName": {
+      "type": "string",
+      "description": "The user's first name."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "The user's last name."
+    },
+    "password": {
+      "minimum": 10,
+      "type": "string",
+      "description": "The password the user chooses. Do not save or log this unhashed!"
+    }
+  },
+  "type": "object",
+  "required": [
+    "userId",
+    "email",
+    "firstName",
+    "lastName",
+    "password"
+  ]
+}

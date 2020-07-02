@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "userId": {
+      "format": "uuid",
+      "type": "string",
+      "description": "A unique id identifying the user."
+    },
+    "subscriptionId": {
+      "type": "string",
+      "description": "A unique id identifying the subscription. You can contact us to set up the id as you prefer."
+    }
+  },
+  "type": "object",
+  "required": [
+    "userId",
+    "subscriptionId"
+  ]
+}
