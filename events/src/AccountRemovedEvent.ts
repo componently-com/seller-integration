@@ -18,8 +18,9 @@ export function createExampleAccountRemovedEvent (): AccountRemovedEvent {
 }
 
 @JSONSchema({
+  title: 'AccountRemovedEvent',
   description: 'This event will be sent when a user removes an account. ' +
-    'To comply with GDPR rulings you are expected to also remove all' +
+    'To comply with GDPR rulings you are expected to also remove all ' +
     'data you have on this user that is no longer required.',
   example: createExampleAccountRemovedEvent()
 })
@@ -27,6 +28,9 @@ export class AccountRemovedEvent extends BaseEvent {
   @Equals('Account removed')
   'detail-type' = 'Account removed' as const
 
+  @JSONSchema({
+    title: 'Account removed event detail'
+  })
   @ValidateNested()
   @IsDefined()
   detail: AccountRemovedEventDetail
