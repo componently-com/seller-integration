@@ -1,7 +1,8 @@
 import { v4 as uuid } from 'uuid'
-import { Equals, IsDefined, IsISO8601, IsUUID, ValidateNested } from 'class-validator'
+import { Equals, IsDefined, ValidateNested } from 'class-validator'
 import { AccountRemovedEventDetail } from './AccountRemovedEventDetail'
 import { JSONSchema } from 'class-validator-jsonschema'
+import { BaseEvent } from './BaseEvent'
 
 export function createExampleAccountRemovedEvent (): AccountRemovedEvent {
   return {
@@ -22,34 +23,7 @@ export function createExampleAccountRemovedEvent (): AccountRemovedEvent {
     'data you have on this user that is no longer required.',
   example: createExampleAccountRemovedEvent()
 })
-export class AccountRemovedEvent {
-  @JSONSchema({
-    description: 'Version of the event schema.'
-  })
-  @Equals('0')
-  version = '0' as const
-
-  @JSONSchema({
-    description: 'A unique id identifying the event. You can use this id to deal with message duplicity.'
-  })
-  @IsUUID()
-  id: string = uuid()
-
-  @JSONSchema({
-    description: 'An identifier you can use to separate componently events from other events.'
-  })
-  @Equals('componently.vendor')
-  source = 'componently.vendor' as const
-
-  @JSONSchema({
-    description: 'When the event happened.'
-  })
-  @IsISO8601()
-  time: string
-
-  @JSONSchema({
-    description: 'The type of the event.'
-  })
+export class AccountRemovedEvent extends BaseEvent {
   @Equals('Account removed')
   'detail-type' = 'Account removed' as const
 
