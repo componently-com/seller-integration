@@ -1,7 +1,7 @@
 import { IsString, IsUUID } from 'class-validator'
 import { JSONSchema } from 'class-validator-jsonschema'
 
-export class AccountSubscribedEventDetail {
+export class AccountSubscribedEventDetails {
   @JSONSchema({
     description: 'A unique id identifying the user.'
   })

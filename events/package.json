@@ -4,9 +4,10 @@
   "description": "Test utility to simulate componently events for integrating as a vendor",
   "main": "index.js",
   "scripts": {
+    "build": "npm run create-schemas && npm run create-docs",
     "create-docs": "ts-node ./scripts/createDocs.ts",
     "create-schemas": "ts-node ./scripts/extractSchema.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "Componently",

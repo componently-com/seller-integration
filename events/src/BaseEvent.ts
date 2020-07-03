@@ -31,5 +31,5 @@ export class BaseEvent {
     description: 'The type of the event.'
   })
   @IsString()
-  'detail-type': string
+  detailsType: string
 }

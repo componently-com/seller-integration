@@ -13,23 +13,33 @@ You can find JSON schemas for all events in the [schemas folder](./schemas) and 
 in the [src folder](./src). The TypeScript definitions also include validation decorators
 via [class-validator](https://www.npmjs.com/package/class-validator).
 
-## Event signatures
-Each request contains the following headers as a signature:
+## Expected response
+When calling your endpoint we expect a 2xx status code. In case of a different
+response code or if we don't get a response after 30 seconds, we will retry
+sending the same event after 1 minute, 15 minutes, 1h, 3h, 6h, 12h, 24h, 48h,
+and finally 72h. You can identify a duplicate event by the event id which will
+stay the same throughout all retries.
+Please note that the behavior for 3xx status code responses might change
+in the future, so please do not rely on this behavior.
 
-**componently-signature-timestamp** is the ISO 8601 UTC datetime when the event was signed. You should discard the event
-if this is more than 15 minutes in the past.
-
-**componently-signature-algorithm** is the algorithm used for signing. At the moment only RS256 is supported.
-
-**componently-signature-version** is the version of the signature. For now, this is always 1.
-
-**componently-signature** is the signature. To verify, concatenate the timestamp, a dot (`.`) and the event body
-and use the corresponding public key. You can obtain the public key by [sending an email](mailto:daniel.bartholomae@componently.com?subject=Obtain%20public%20key%20for%20webhooks).
-
-Here is an example of what the headers could look like:
+## Example
+You can use the following `curl` command to send an example event to `localhost:5000/webhook`:
+```shell script
+curl --location --request POST 'localhost:5000/webhook' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "version": "0",
+    "id": "d088a204-d3f6-49ed-a1d4-6c7f3c0240ae",
+    "detailsType": "Account request",
+    "source": "componently.vendor",
+    "time": "2020-06-01T18:19:00Z",
+    "details": {
+        "userId": "af9c043a-8b3b-446b-9402-cc093b584307",
+        "email": "test.user@componently.com",
+        "firstName": "Test",
+        "lastName": "User",
+        "password": "Y1BsNWCEBZ9Est5Od3r^"
+    }
+}'
 ```
-componently-signature-timestamp=2020-07-01T18:12:00Z
-componently-signature-algorithm=RS256
-componently-signature-version=1
-componently-signature=nupgm7iFqSnERq9GxszwBrsYrYfMuSfUGj8tGQlkY3Ksh3o_IDfq1GO5ngHQLZuYPD-8qPIovPBEVomGZCo_jYvsbjmYkalAStmF01TvSoXQgJd09ygZstH0liKsmINStiRE8fTA-yfEIuBYttROizx-cDoxiindbKNIGOsqf6yOxf7ww8DrTBJKYRnHVkAfIK8wm9LRpsaOVzWdC7S3cbhCKvANjT0RTRpAx8b_AOr_UCpOr8paj-xMT9Zc9HVCMZLBfj6OZ6yVvnC9g6q_SlTa--fY9SL5eqy6-q1JGoyK_-BQ_YrCwrRdrjoJsJ8j-XFRFWJX09W3oDuZ990nGA
-```
+You can find example payloads for all events in the code, schema and docs.

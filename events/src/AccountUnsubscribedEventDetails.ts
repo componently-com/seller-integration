@@ -1,7 +1,7 @@
 import { IsUUID } from 'class-validator'
 import { JSONSchema } from 'class-validator-jsonschema'
 
-export class AccountRemovedEventDetail {
+export class AccountUnsubscribedEventDetails {
   @JSONSchema({
     description: 'A unique id identifying the user.'
   })

@@ -1,14 +1,14 @@
 {
   "properties": {
-    "detail-type": {
+    "detailsType": {
       "type": "string",
       "enum": [
         "Account request"
       ],
       "description": "The type of the event."
     },
-    "detail": {
-      "$ref": "./AccountRequestedEventDetail.schema.json"
+    "details": {
+      "$ref": "./AccountRequestedEventDetails.schema.json"
     },
     "version": {
       "type": "string",
@@ -37,8 +37,8 @@
   },
   "type": "object",
   "required": [
-    "detail-type",
-    "detail",
+    "detailsType",
+    "details",
     "version",
     "id",
     "source",
@@ -48,12 +48,12 @@
   "description": "This event is sent when a user wants to set up an account with your service. You are expected to provision said account right after you receive the event as a free or trial account.",
   "example": {
     "version": "0",
-    "id": "eb511616-b1d7-4ab8-b488-7edd36f31123",
-    "detail-type": "Account request",
+    "id": "d088a204-d3f6-49ed-a1d4-6c7f3c0240ae",
+    "detailsType": "Account request",
     "source": "componently.vendor",
     "time": "2020-06-01T18:19:00Z",
-    "detail": {
-      "userId": "c638f2b9-3163-4180-a811-4c2b907359d4",
+    "details": {
+      "userId": "af9c043a-8b3b-446b-9402-cc093b584307",
       "email": "test.user@componently.com",
       "firstName": "Test",
       "lastName": "User",
