@@ -2,7 +2,7 @@
 
 When integrating with Componently you can register a Webhook
 that will receive events relevant to your integration. To set up the
-webhook, [send an email](mailto:daniel.bartholomae@componently.com?subject=Register%20a%20webhook).
+webhook, [send an email](mailto:daniel@barthololmae.name?subject=Register%20a%20webhook).
 
 The webhook will be called as a POST request with the event as JSON body.
 
