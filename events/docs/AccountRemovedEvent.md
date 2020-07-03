@@ -4,7 +4,7 @@ This event will be sent when a user removes an account. To comply with GDPR ruli
 
 The schema defines the following properties:
 
-## `detail-type` (string, enum, required)
+## `detailsType` (string, enum, required)
 
 The type of the event.
 
@@ -12,9 +12,9 @@ This element must be one of the following enum values:
 
 * `Account removed`
 
-## `detail` (object, required)
+## `details` (object, required)
 
-Properties of the `detail` object:
+Properties of the `details` object:
 
 ### `userId` (string, required)
 

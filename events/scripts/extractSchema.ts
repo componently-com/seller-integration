@@ -8,8 +8,8 @@ import '../src/AccountUnsubscribedEvent'
 const { writeFile } = promises
 
 function fixEventDetailReferencePath (schema) {
-  if (schema.properties.detail) {
-    schema.properties.detail.$ref = schema.properties.detail.$ref + '.schema.json'
+  if (schema.properties.details) {
+    schema.properties.details.$ref = schema.properties.details.$ref + '.schema.json'
   }
 }
 

@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import { Equals, IsDefined, ValidateNested } from 'class-validator'
-import { AccountUnsubscribedEventDetail } from './AccountUnsubscribedEventDetail'
+import { AccountUnsubscribedEventDetails } from './AccountUnsubscribedEventDetails'
 import { BaseEvent } from './BaseEvent'
 import { JSONSchema } from 'class-validator-jsonschema'
 
@@ -8,10 +8,10 @@ export function createExampleAccountUnsubscribedEvent (): AccountUnsubscribedEve
   return {
     version: '0',
     id: uuid(),
-    'detail-type': 'Account unsubscribed',
+    detailsType: 'Account unsubscribed',
     source: 'componently.vendor',
     time: '2020-06-01T18:19:00Z',
-    detail: {
+    details: {
       userId: uuid()
     }
   }
@@ -25,9 +25,9 @@ export function createExampleAccountUnsubscribedEvent (): AccountUnsubscribedEve
 })
 export class AccountUnsubscribedEvent extends BaseEvent {
   @Equals('Account unsubscribed')
-  'detail-type' = 'Account unsubscribed' as const
+  detailsType = 'Account unsubscribed' as const
 
   @ValidateNested()
   @IsDefined()
-  detail: AccountUnsubscribedEventDetail
+  details: AccountUnsubscribedEventDetails
 }

@@ -4,7 +4,7 @@ This event is sent when a user has bought a paid subscription.
 
 The schema defines the following properties:
 
-## `detail-type` (string, enum, required)
+## `detailsType` (string, enum, required)
 
 The type of the event.
 
@@ -12,9 +12,9 @@ This element must be one of the following enum values:
 
 * `Account subscribed`
 
-## `detail` (object, required)
+## `details` (object, required)
 
-Properties of the `detail` object:
+Properties of the `details` object:
 
 ### `userId` (string, required)
 

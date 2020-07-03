@@ -13,7 +13,7 @@ describe('AccountRequestedEvent', () => {
       const event: AccountRequestedEvent = {
         version: '0',
         id: uuid(),
-        'detail-type': 'Account request',
+        detailsType: 'Account request',
         source: 'componently.vendor',
         time: '2020-06-01T18:19:00Z'
       }
@@ -29,7 +29,7 @@ describe('AccountRequestedEvent', () => {
       await expect(transformAndValidate(AccountRequestedEvent, {
         version: '0',
         id: uuid(),
-        'detail-type': 'Account request',
+        detailsType: 'Account request',
         source: 'componently.vendor',
         time: '2020-06-01T18:19:00Z'
       })).rejects.toBeDefined()

@@ -24,7 +24,7 @@
       "type": "string",
       "description": "When the event happened."
     },
-    "detail-type": {
+    "detailsType": {
       "type": "string",
       "description": "The type of the event."
     }
@@ -35,6 +35,6 @@
     "id",
     "source",
     "time",
-    "detail-type"
+    "detailsType"
   ]
 }
