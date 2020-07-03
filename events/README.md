@@ -42,4 +42,4 @@ curl --location --request POST 'localhost:5000/webhook' \
     }
 }'
 ```
-You can find example payloads for all events in the code, schema and docs.
+You can find example payloads for all events in the code and schema definitions.
