@@ -13,6 +13,15 @@ You can find JSON schemas for all events in the [schemas folder](./schemas) and 
 in the [src folder](./src). The TypeScript definitions also include validation decorators
 via [class-validator](https://www.npmjs.com/package/class-validator).
 
+## Expected response
+When calling your endpoint we expect a 2xx status code. In case of a different
+response code or if we don't get a response after 30 seconds, we will retry
+sending the same event after 1 minute, 15 minutes, 1h, 3h, 6h, 12h, 24h, 48h,
+and finally 72h. You can identify a duplicate event by the event id which will
+stay the same throughout all retries.
+Please note that the behavior for 3xx status code responses might change
+in the future, so please do not rely on this behavior.
+
 ## Example
 You can use the following `curl` command to send an example event to `localhost:5000/webhook`:
 ```shell script
