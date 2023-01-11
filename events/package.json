@@ -30,7 +30,7 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "class-validator-jsonschema": "^2.0.2",
     "uuid": "^8.2.0"
   }
